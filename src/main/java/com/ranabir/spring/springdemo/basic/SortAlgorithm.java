@@ -1,4 +1,4 @@
-package com.ranabir.spring.springdemo;
+package com.ranabir.spring.springdemo.basic;
 
 public interface SortAlgorithm {
 	

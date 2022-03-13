@@ -1,12 +1,18 @@
-package com.ranabir.spring.springdemo;
+package com.ranabir.spring.springdemo.basic;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+// @Scope("prototype")
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)  // similar of @Scope("prototype")
 public class BinarySearchImpl {
 	
 	@Autowired
+	@Qualifier("bubble")
 	private SortAlgorithm sortAlgorithm;
 	
 	// 1st - you can use @Autowired without any setter or constructor.

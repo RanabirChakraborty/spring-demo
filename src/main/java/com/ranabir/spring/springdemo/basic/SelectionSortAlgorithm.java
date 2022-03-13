@@ -1,9 +1,9 @@
-package com.ranabir.spring.springdemo;
+package com.ranabir.spring.springdemo.basic;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class SelectionSortAlgorithm implements SortAlgorithm{
+public class SelectionSortAlgorithm implements SortAlgorithm {
 
 	public int[] sort(int[] arr) {
 		int min=0;

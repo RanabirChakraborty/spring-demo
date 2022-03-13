@@ -1,11 +1,12 @@
-package com.ranabir.spring.springdemo;
+package com.ranabir.spring.springdemo.basic;
 
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary  //add Primary tag for the priority component.
-public class BubbleSortAlgorithm implements SortAlgorithm{
+// @Primary  //1. way to handle multiple dependencies - add Primary tag for the priority component.
+@Qualifier("bubble") // 2. way to handle multiple dependencies
+public class BubbleSortAlgorithm implements SortAlgorithm {
 	
 	public int[] sort(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
