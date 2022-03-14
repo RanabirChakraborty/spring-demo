@@ -3,18 +3,20 @@ package com.ranabir.spring.springdemo;
 import com.ranabir.spring.springdemo.scope.PersonDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+@Configuration  // needs to define to start Spring application.
+@ComponentScan  // to define "com.ranabir.spring.springdemo" needs to scan for component.
 public class SpringDemoScopeApplication {
 
     private static Logger LOGGER = LoggerFactory.getLogger(SpringDemoScopeApplication.class);
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = SpringApplication.run(SpringDemoScopeApplication.class, args);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringDemoScopeApplication.class);
 
         // from the applicationContext we'll get a bean of the @Component mentioned class
         PersonDAO obj1 = applicationContext.getBean(PersonDAO.class);
