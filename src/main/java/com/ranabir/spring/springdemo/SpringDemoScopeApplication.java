@@ -16,19 +16,19 @@ public class SpringDemoScopeApplication {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringDemoScopeApplication.class);
+        // putting try block because if in any case something fails, it'll close applicationContext.
+        try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringDemoScopeApplication.class)) {
 
-        // from the applicationContext we'll get a bean of the @Component mentioned class
-        PersonDAO obj1 = applicationContext.getBean(PersonDAO.class);
-        PersonDAO obj2 = applicationContext.getBean(PersonDAO.class);
+            // from the applicationContext we'll get a bean of the @Component mentioned class
+            PersonDAO obj1 = applicationContext.getBean(PersonDAO.class);
+            PersonDAO obj2 = applicationContext.getBean(PersonDAO.class);
 
-        // if we don't use @Scope("prototype") at BinarySearchImpl then for both obj1 and obj2 the instance will be same.
-        LOGGER.info("{}"+obj1);
-        LOGGER.info("{}"+obj1.getJdbcconnection());
+            // if we don't use @Scope("prototype") at BinarySearchImpl then for both obj1 and obj2 the instance will be same.
+            LOGGER.info("{}" + obj1);
+            LOGGER.info("{}" + obj1.getJdbcconnection());
 
-        LOGGER.info("{}"+obj2);
-        LOGGER.info("{}"+obj2.getJdbcconnection());
-
+            LOGGER.info("{}" + obj2);
+            LOGGER.info("{}" + obj2.getJdbcconnection());
+        }
     }
-
 }
