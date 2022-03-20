@@ -1,8 +1,9 @@
 package com.ranabir.spring.springdemo.basic;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class SelectionSortAlgorithm implements SortAlgorithm {
 
 	public int[] sort(int[] arr) {

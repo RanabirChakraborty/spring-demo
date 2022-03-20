@@ -7,12 +7,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@Configuration
-@ComponentScan
 public class SpringDemoXMLApplication {
     private static Logger logger = LoggerFactory.getLogger(SpringDemoXMLApplication.class);
     public static void main(String[] args) {
+        // Defining Spring Application Context using XML.
         try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")) {
+
+            // check the beans
+            logger.info("Beans are loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
 
             XmlJdbcDAO obj1 = applicationContext.getBean(XmlJdbcDAO.class);
 
